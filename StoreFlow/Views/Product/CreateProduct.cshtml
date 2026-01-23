@@ -1,0 +1,91 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yeni Ürün Ekle</h4>
+                <p class="card-description">
+                    Aşağıdaki formu doldurarak yeni ürün ekleyebilirsiniz.
+                </p>
+                <form method="post" asp-action="CreateProduct" asp-controller="Product">
+
+                    <div class="form-group">
+                        <label asp-for="ProductName">Ürün Adı</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary text-white">
+                                    <i class="fa fa-box"></i>
+                                </span>
+                            </div>
+                            <input asp-for="ProductName" class="form-control"
+                                   placeholder="Ürün adını giriniz" />
+                        </div>
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ProductPrice">Ürün Fiyatı</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-success text-white">₺</span>
+                            </div>
+                            <input asp-for="ProductPrice" class="form-control"
+                                   placeholder="0.00" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">TL</span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="ProductPrice" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kategori</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-info text-white">
+                                    <i class="fa fa-list"></i>
+                                </span>
+                            </div>
+                            <select asp-for="CategoryId" class="form-control"
+                                    asp-items="ViewBag.Categories">
+                                <option value="">-- Kategori Seçiniz --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ProductStock">Stok Sayısı</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-warning text-white">
+                                    <i class="fa fa-warehouse"></i>
+                                </span>
+                            </div>
+                            <input asp-for="ProductStock" class="form-control"
+                                   placeholder="Stok miktarını giriniz" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">Adet</span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="ProductStock" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary mr-2">
+                            <i class="fa fa-save"></i> Ekle
+                        </button>
+                        <a href="/Product/ProductList" class="btn btn-light">
+                            <i class="fa fa-times"></i> İptal
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "CustomerGetByCity";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Şehirde Müşteri Var mı?</h4>
+                <form class="forms-sample" method="get" asp-action="CustomerGetByCity">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Şehir Adı</label>
+                        <input type="text" class="form-control" placeholder="Şehir Adını Giriniz" Name="city" required>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info mr-2">Müşteriyi Ara</button>
+                    <button class="btn btn-light">İptal Et</button>
+                </form>
+                <br />
+                <div class="alert alert-success">@ViewBag.message</div>
+            </div>
+        </div>
+    </div>
+</div>
+

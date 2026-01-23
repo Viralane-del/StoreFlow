@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Dashboard
+        </h3>
+    </div>
+    @await Component.InvokeAsync("DashboardCardStatistic")
+
+    @await Component.InvokeAsync("DashboardChart")
+
+    <div class="row">
+        @await Component.InvokeAsync("DashboardSalesChart")
+
+        @await Component.InvokeAsync("DashboardActivity")
+
+        @await Component.InvokeAsync("DashboardDailySales")      
+    </div>
+    <div class="row">
+    @await Component.InvokeAsync("DashboardInbox")    
+    </div>
+    <div class="row">
+        @await Component.InvokeAsync("DashboardSalesData")
+    </div>
+
+    <div class="row">
+    @await Component.InvokeAsync("DashboardTodo")
+
+    @await Component.InvokeAsync("DashboardProject")
+    </div>
+</div>
+

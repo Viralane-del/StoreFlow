@@ -1,0 +1,48 @@
+﻿@model List<Customer>
+@{
+    ViewData["Title"] = "CustomerListOrderByDescBalance";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Müşteri Listesi Bakiye Değerine Göre (Z--A)</h4>
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table id="order-listing" class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Müşteri Adı</th>
+                                <th>Şehir / İlçe</th>
+                                <th>Bakiye</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th>@item.CustomerId</th>
+                                    <td>@item.CustomerName @item.CustomerSurname</td>
+                                    <td>@item.CustomerCity / @item.CustomerDistrict</td>
+                                    <td>@item.CustomerBalance TL</td>
+                                    <td>
+                                        <a href="/Customer/DeleteCustomer/@item.CustomerId" class="btn btn-outline-danger">Sil</a>
+                                    </td>
+                                    <td>
+                                        <button href="/Customer/UpdateCustomer/@item.CustomerId" class="btn btn-outline-primary">Güncelle</button>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <a href="/Customer/CreateCustomer/" class="btn btn-outline-info">Yeni Müşteri Girişi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

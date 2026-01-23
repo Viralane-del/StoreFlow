@@ -1,0 +1,44 @@
+﻿@model List<Todo[]>
+@{
+    ViewData["Title"] = "TodoChunk";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    int count = 0;
+}
+
+<h3>Chunk ile Gruplanmış Görevler</h3>
+@foreach (var group in Model)
+{
+    count++;
+    <h5>@count. Grup</h5>   
+ <div class="row">
+        @foreach (var item in group)
+        {
+             <div class="col-md-6 mb-3">
+                 <div class="card">
+                     <div class="card-body">
+                         <h5 class="card-title">@item.Description</h5>
+                        @if (item.Priority == "Birincil")
+                        {
+                            <p class="card-text; badge bg-success text-white"> Öncelik: @item.Priority</p>
+                        }
+                        @if (item.Priority == "İkincil")
+                        {
+                            <p class="card-text; badge bg-warning"> Öncelik: @item.Priority</p>
+                        }
+                        @if (item.Priority == "Üçüncül")
+                        {
+                            <p class="card-text; badge bg-info text-white"> Öncelik: @item.Priority</p>
+                        }
+                        @if (item.Priority == "Dördüncül")
+                        {
+                            <p class="card-text; badge bg-danger"> Öncelik: @item.Priority</p>
+                        }
+                        <br>
+                         <span class="badge bg-primary text-white"> Tamamlanmadı</span>
+                     </div>
+                 </div>
+             </div>
+        }
+    </div>
+}
+

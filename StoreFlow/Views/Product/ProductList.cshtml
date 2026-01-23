@@ -1,0 +1,160 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "ProductList";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Ürün Listesi</h4>
+                <p class="card-description">
+                    <code style="font-weight:bold;">Ürünler listesini aşağıda görüntüleyebilirsiniz.</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ürün Adı</th>
+                                <th>Ürün Fiyatı</th>
+                                <th>Kategori Adı</th>
+                                <th>Stok Sayısı</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th>@item.ProductId</th>
+                                    <td>@item.ProductName</td>
+                                    @if (item.ProductPrice <= 10000)
+                                    {
+                                        <td class="text-danger"> @item.ProductPrice.ToString("N2") TL <i class="fa fa-arrow-down"></i></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-success"> @item.ProductPrice.ToString("N2") TL <i class="fa fa-arrow-up"></i></td>
+                                    }
+
+                                    @{
+                                        var categoryClass = "";
+                                        var categoryIcon = "";
+
+                                        switch (item.Category?.CategoryName)
+                                        {
+                                            case "Elektronik":
+                                                categoryClass = "badge badge-primary";
+                                                categoryIcon = "fa fa-bolt";
+                                                break;
+                                            case "Bilgisayar":
+                                                categoryClass = "badge badge-info";
+                                                categoryIcon = "fa fa-laptop";
+                                                break;
+                                            case "Telefon":
+                                                categoryClass = "badge badge-success";
+                                                categoryIcon = "fa fa-mobile-alt";
+                                                break;
+                                            case "Tablet":
+                                                categoryClass = "badge badge-warning";
+                                                categoryIcon = "fa fa-tablet-alt";
+                                                break;
+                                            case "Aksesuar":
+                                                categoryClass = "badge badge-secondary";
+                                                categoryIcon = "fa fa-headphones";
+                                                break;
+                                            case "Beyaz Esya":
+                                                categoryClass = "badge badge-light text-dark";
+                                                categoryIcon = "fa fa-blender";
+                                                break;
+                                            case "Küçük Ev Aletleri":
+                                                categoryClass = "badge badge-danger";
+                                                categoryIcon = "fa fa-plug";
+                                                break;
+                                            case "Televizyon":
+                                                categoryClass = "badge badge-dark";
+                                                categoryIcon = "fa fa-tv";
+                                                break;
+                                            case "Ses Sistemleri":
+                                                categoryClass = "badge badge-primary";
+                                                categoryIcon = "fa fa-volume-up";
+                                                break;
+                                            case "Oyun Konsollari":
+                                                categoryClass = "badge badge-info";
+                                                categoryIcon = "fa fa-gamepad";
+                                                break;
+                                            case "Ofis Malzemeleri":
+                                                categoryClass = "badge badge-success";
+                                                categoryIcon = "fa fa-briefcase";
+                                                break;
+                                            case "Kirtasiye":
+                                                categoryClass = "badge badge-warning";
+                                                categoryIcon = "fa fa-pen";
+                                                break;
+                                            case "Mobilya":
+                                                categoryClass = "badge badge-secondary";
+                                                categoryIcon = "fa fa-couch";
+                                                break;
+                                            case "Ev Dekorasyonu":
+                                                categoryClass = "badge badge-danger";
+                                                categoryIcon = "fa fa-home";
+                                                break;
+                                            case "Aydinlatma":
+                                                categoryClass = "badge badge-warning";
+                                                categoryIcon = "fa fa-lightbulb";
+                                                break;
+                                            case "Mutfak Gereçleri":
+                                                categoryClass = "badge badge-success";
+                                                categoryIcon = "fa fa-utensils";
+                                                break;
+                                            case "Temizlik Ürünleri":
+                                                categoryClass = "badge badge-info";
+                                                categoryIcon = "fa fa-broom";
+                                                break;
+                                            case "Kisisel Bakim":
+                                                categoryClass = "badge badge-primary";
+                                                categoryIcon = "fa fa-spray-can";
+                                                break;
+                                            case "Spor & Outdoor":
+                                                categoryClass = "badge badge-dark";
+                                                categoryIcon = "fa fa-running";
+                                                break;
+                                            case "Hobi & Oyuncak":
+                                                categoryClass = "badge badge-danger";
+                                                categoryIcon = "fa fa-puzzle-piece";
+                                                break;
+                                            default:
+                                                categoryClass = "badge badge-secondary";
+                                                categoryIcon = "fa fa-tag";
+                                                break;
+                                        }
+                                    }
+
+                                    <td>
+                                        <span class="@categoryClass">
+                                            <i class="@categoryIcon"></i> @item.Category?.CategoryName
+                                        </span>
+                                    </td>
+
+                                    @if (item.ProductStock <= 100)
+                                    {
+                                        <td class="text-primary"> @item.ProductStock  <i class="fa fa-arrow-down"></i></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-info"> @item.ProductStock  <i class="fa fa-arrow-up"></i></td>
+                                    }
+                                    <td><a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-outline-danger" onclick="return confirm('Bu ürünü silmek istediğinizden emin misiniz?')">Sil</a></td>
+                                    <td><a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-outline-warning">Güncelle</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Product/CreateProduct" class="btn btn-outline-info">Yeni Ürün Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

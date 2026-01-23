@@ -1,0 +1,108 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "UpdateOrder";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Sipariş Güncelleme Sayfası</h4>
+                <p class="card-description">
+                    Aşağıdaki formu eksiksiz doldurarak siparişleri güncelleyebilirsiniz.
+                </p>
+                <form method="post">
+                    <input type="hidden" asp-for="OrderId"/>
+                    <div class="form-group">
+                        <label>Ürün Şeçiniz</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-info text-white">
+                                    <i class="fa fa-list"></i>
+                                </span>
+                            </div>
+                            <select asp-for="ProductId" class="form-control"
+                                    asp-items="ViewBag.products">
+                                <option value="">-- Ürün Seçiniz --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Müşteriyi Şeçiniz</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-danger text-white">
+                                    <i class="fa fa-list"></i>
+                                </span>
+                            </div>
+                            <select asp-for="CustomerId" class="form-control"
+                                    asp-items="ViewBag.customers">
+                                <option value="">-- Müşteri Seçiniz --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="OrderCount">Sipariş Adet</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-warning text-white">
+                                    <i class="fa fa-warehouse"></i>
+                                </span>
+                            </div>
+                            <input asp-for="OrderCount" class="form-control"
+                                   placeholder="Stok miktarını giriniz" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">Adet</span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="OrderCount" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="UnitPrice">Birim Fiyatı Giriniz</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-success text-white">₺</span>
+                            </div>
+                            <input asp-for="UnitPrice" class="form-control"
+                                   placeholder="0.00" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">TL</span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="TotalPrice">Toplam Fiyatı Giriniz</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-success text-white">₺</span>
+                            </div>
+                            <input asp-for="TotalPrice" class="form-control"
+                                   placeholder="0.00" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">TL</span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="TotalPrice" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success mr-2">
+                            <i class="fa fa-save"></i> Siparişi Güncelle
+                        </button>
+                        <a href="/Order/OrderList" class="btn btn-light">
+                            <i class="fa fa-times"></i> İptal
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,51 @@
+﻿@model List<Message>
+@{
+    ViewData["Title"] = "MessageList";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Mesaj Listesi</h3>
+                <p class="card-description">
+                    <code style="font-weight:bold;">Mesajlar ile ilgili işlemlerinizi buradan yapabilirsiniz.</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Gönderen</th>
+                                <th>Konu</th>
+                                <th>Durum</th>
+                                <th>Tarih</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                                <th>Mesajı Aç</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th>@item.MessageId</th>
+                                    <td>@item.SenderNameSurname</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.IsRead</td>
+                                    <td>@item.DateTime</td>
+                                    <td><a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-outline-danger">Sil</a></td>
+                                    <td><a href="/Message/UpdateMessage/@item.MessageId" class="btn btn-outline-warning">Güncelle</a></td>
+                                    <td><a href="/Message/UpdateMessage/@item.MessageId" class="btn btn-outline-dark">Mesajı Aç</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Message/CreateMessage/" class="btn btn-outline-primary btn-fw">Yeni Mesaj Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

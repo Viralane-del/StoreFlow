@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Melody Admin</title>
+    <link rel="icon" type="image/icon" href="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/images/logo-mini.svg" />
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/vendors/iconfonts/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="http://www.urbanui.com/" />
+</head>
+<body>
+    <div class="container-scroller">
+        @await Component.InvokeAsync("DashboardNavbar")
+        <div class="container-fluid page-body-wrapper">
+            @await Component.InvokeAsync("DashboardThemeSettings")
+
+            @await Component.InvokeAsync("DashboardSettingsSidebar")    
+           
+            @await Component.InvokeAsync("DashboardSidebar")            
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+                
+                
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © @DateTime.Now. Tüm Hakları Saklıdır.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Emir Kale <i class="far fa-heart text-danger"></i></span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    
+    <!-- container-scroller -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- plugins:js -->
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/off-canvas.js"></script>
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/hoverable-collapse.js"></script>
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/misc.js"></script>
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/settings.js"></script>
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/dashboard.js"></script>
+    <!-- End custom js for this page-->
+    <script src="/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/data-table.js"></script>
+    
+
+</body>
+</html>
+

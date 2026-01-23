@@ -1,0 +1,150 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "CreateOrder";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yeni Sipariş Ekleme Sayfası</h4>
+                <p class="card-description">
+                    Aşağıdaki formu doldurarak yeni sipariş ekleyebilirsiniz.
+                </p>
+                <form method="post" >
+
+                    <div class="form-group">
+                        <label>Ürün Şeçiniz</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-info text-white">
+                                    <i class="fa fa-list"></i>
+                                </span>
+                            </div>
+                            <select asp-for="ProductId" class="form-control"
+                                    asp-items="ViewBag.products">
+                                <option value="">-- Ürün Seçiniz --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Müşteriyi Şeçiniz</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-danger text-white">
+                                    <i class="fa fa-list"></i>
+                                </span>
+                            </div>
+                            <select asp-for="CustomerId" class="form-control"
+                                    asp-items="ViewBag.customers">
+                                <option value="">-- Müşteri Seçiniz --</option>
+                            </select>
+                        </div>
+                    </div>                    
+
+                    <div class="form-group">
+                        <label asp-for="OrderCount">Sipariş Adet</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-warning text-white">
+                                    <i class="fa fa-warehouse"></i>
+                                </span>
+                            </div>
+                            <input asp-for="OrderCount" class="form-control"
+                                   placeholder="Stok miktarını giriniz" id="OrderCount" min="0"/>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Adet</span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="OrderCount" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="UnitPrice">Birim Fiyatı Giriniz</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-success text-white">₺</span>
+                            </div>
+                            <input asp-for="UnitPrice" class="form-control"
+                                   placeholder="0.00" id="unitPrice" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">TL</span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="TotalPrice">Toplam Fiyatı Giriniz</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-success text-white">₺</span>
+                            </div>
+                            <input asp-for="TotalPrice" class="form-control"
+                                   placeholder="0.00" id="totalPrice" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">TL</span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="TotalPrice" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary mr-2">
+                            <i class="fa fa-save"></i> Siparişi Ekle
+                        </button>
+                        <a href="/Order/OrderList" class="btn btn-light">
+                            <i class="fa fa-times"></i> İptal
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // HTML'deki "OrderCount" ID'li input'u seçiyoruz.
+    // kaç adet ürün gireceğini belirttiği alan.
+    const orderCountInput = document.getElementById("OrderCount");
+
+    // HTML'deki "unitPrice" ID'li input'u seçiyoruz.
+    // Bu input ürünün birim fiyatını tutar
+    const unitPriceInput = document.getElementById("unitPrice");
+
+    // HTML'deki "totalPrice" ID'li input'u seçiyoruz.
+    // Bu alana otomatik olarak (adet x birim fiyat) sonucu yazılır.
+    const totalPriceInput = document.getElementById("totalPrice");
+
+    // OrderCount alanında değişiklik yaptığında (örneğin ↑ ↓ tuşlarına bastığında),
+    // bu fonksiyon tetiklenir.
+    orderCountInput.addEventListener("change", function () {
+
+        //Girilen adet değerini alıyoruz.
+        const orderCount = orderCountInput.value;
+
+        // Ürünün birim fiyatını alıyoruz.
+        const unitPrice = unitPriceInput.value;
+
+        // Eğer kullanıcı 0 veya daha küçük bir değer girdiyse:
+        if (orderCount <= 0) {
+            // Uyarı mesajı gösteriyoruz.
+            alert("Ürün adedi 0 veya 0'dan küçük olamaz.");
+
+            // Adedi 1 olarak düzeltip input'u güncelliyoruz.
+            orderCountInput.value = 1;
+
+            // Aşağıdaki hesaplamaları yapmadan çıkıyoruz.
+            return;
+        }
+
+        // Toplam fiyatı hesaplıyoruz: adet * birim fiyat
+        const totalPrice = unitPrice * orderCount;
+
+        // Hesaplanan toplam fiyatı "totalPrice" input'una yazıyoruz.
+        totalPriceInput.value = totalPrice;
+    });
+</script>

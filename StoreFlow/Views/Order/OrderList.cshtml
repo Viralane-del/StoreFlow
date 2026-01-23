@@ -1,0 +1,112 @@
+﻿@model List<Order>
+@{
+    ViewData["Title"] = "OrderList";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Asenkron Sipariş Listesi</h4>
+                <p class="card-description">
+                    <code style="font-weight:bold;">Sipariş listesini aşağıda görüntüleyebilirsiniz.</code>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ürün Adı</th>
+                                <th>Müşteri</th>
+                                <th>Sipariş Adet</th>
+                                <th>Birim Fiyat</th>
+                                <th>Toplam Fiyat</th>
+                                <th>Tarih</th>
+                                <th>Durum</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Any())
+                            {
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th>@item.OrderId</th>
+                                        <th>@item.Product.ProductName</th>
+                                        <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
+                                        <td>@item.OrderCount</td>
+                                        <td>@item.UnitPrice TL</td>
+                                        @if (item.TotalPrice <= 10000)
+                                        {
+                                            <td class="text-danger"> @item.TotalPrice TL <i class="fa fa-arrow-down"></i></td>
+                                        }
+                                        else
+                                        {
+                                            <td class="text-success"> @item.TotalPrice TL <i class="fa fa-arrow-up"></i></td>
+                                        }
+                                        <td>@item.OrderDate.ToString("dd/MM/yyyy")</td>
+
+
+                                        @{
+                                            var orderClass = "";
+                                            var orderIcon = "";
+
+                                            switch (item.Status)
+                                            {
+                                                case "Sipariş Alındı":
+                                                    orderClass = "badge badge-info";
+                                                    orderIcon = "fa fa-shopping-cart";
+                                                    break;
+
+                                                case "Taşıma Durumunda":
+                                                    orderClass = "badge badge-warning";
+                                                    orderIcon = "fa fa-truck";
+                                                    break;
+
+                                                case "Teslim Edildi":
+                                                    orderClass = "badge badge-success";
+                                                    orderIcon = "fa fa-check-circle";
+                                                    break;
+
+                                                case "İptal Edildi":
+                                                    orderClass = "badge badge-danger";
+                                                    orderIcon = "fa fa-times-circle";
+                                                    break;
+
+                                                case "Ödeme Bekleniyor":
+                                                    orderClass = "badge badge-secondary";
+                                                    orderIcon = "fa fa-credit-card";
+                                                    break;
+
+                                                default:
+                                                    orderClass = "badge badge-dark";
+                                                    orderIcon = "fa fa-question-circle";
+                                                    break;
+                                            }
+                                        }
+
+
+                                        <td>
+                                            <span class="@orderClass">
+                                                <i class="@orderIcon"></i> @item.Status
+                                            </span>
+                                        </td>
+
+                                        <td><a href="/Order/DeleteOrder/@item.OrderId" class="btn btn-outline-danger" onclick="return confirm('Bu siparişi silmek istediğinizden emin misiniz?')">Sil</a></td>
+                                        <td><a href="/Order/UpdateOrder/@item.OrderId" class="btn btn-outline-warning">Güncelle</a></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Order/CreateOrder" class="btn btn-outline-info">Yeni Sipariş Ekle</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

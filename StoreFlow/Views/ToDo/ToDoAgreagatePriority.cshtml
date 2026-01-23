@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "ToDoAgreagatePriority";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <ul class="solid-bullet-list">
+                @Html.Raw(@ViewBag.results)
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

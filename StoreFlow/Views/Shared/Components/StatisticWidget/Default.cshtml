@@ -1,0 +1,280 @@
+﻿<div class="row">
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">Kategori Sayısı</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.categoryCount</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Toplamda @ViewBag.categoryCount kategorimiz vardır.</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-tag text-bg-primary icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">En Yüksek Ürün Fiyatı</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.productMaxPrice TL</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Bu Ürün: @ViewBag.productMaxPriceProductName</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-shopping-cart text-danger icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">En Düşük Ürün Fiyatı</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.productMinPrice TL</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Bu Ürün: @ViewBag.productMinPriceProductName</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-shopping-cart text-secondary icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">Toplam Ürün Stok Sayısı</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.totalSumProductStock</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Stokta @ViewBag.totalSumProductStock ürün bulunuyor.</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-cubes text-bg-primary icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">Ortalama Ürün Stok Sayısı</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.avgProductStock</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Toplam Ürün Stok Sayısı / Ürün Adet Değeri</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-cube text-warning icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">Ortalama Ürün Fiyatı</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.avgProductPrice TL</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">1 Adet ürün için ortalama fiyat</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-crosshairs text-success icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">4 Nolu ID'ye Ait Ürün Adı</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.getIDIs4ProductName</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">ID değeri 4 olan ürün adı.</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-keyboard text-dark icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">Stoğu 50-100 Arasındaki Ürün</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.stockCountBigger50AndSmaller100ProductCount</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Stok Sayısı 50'den büyük ve 100'den küçük ürün</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-filter text-danger icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">1000 TL'den Yüksek Fiyatlı Ürün Sayısı</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.biggerPriceThen1000ProductCount</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Fiyatı 1000 TL'den Yüksek Ürün Sayısı</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-clock text-secondary icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">Toplam Yapılacak</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.totalTodoCount</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Toplam Yapılacaklar Sayısı</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-paste text-info icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">Birincil Önceliğe Sahip Yapılacaklar</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.priorityTodoCount</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Birincil Önceliğe Sahip Yapılacaklar Sayısı</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-paperclip text-danger icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">Tamamlanan Yapılacaklar</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.completedTodoCount</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Tamamlanan Yapılacaklar Sayısı</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-check-circle text-success icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">Toplam Mesajlar</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.totalMessageCount</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Toplam Mesaj Sayısı</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-comment text-info icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">Okunmuş Mesajlar</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.readMessageCount</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Okunmuş Mesaj Sayısı</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-check text-success icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-0">Okunmamış Mesajlar</h4>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                        <div class="d-md-flex">
+                            <h2 class="mb-0">@ViewBag.unreadMessageCount</h2>
+                        </div>
+                        <small style="font-weight:bold;" class="text-danger">Okunmamış Mesaj Sayısı</small>
+                    </div>
+                    <div class="d-inline-block">
+                        <i class="fas fa-check-circle text-danger icon-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
