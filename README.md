@@ -1,75 +1,62 @@
 📊 Melody Admin Panel – EF Core & LINQ Masterclass Project
-
 ASP.NET Core MVC | Entity Framework Core | LINQ | SQL Server | Chart.js
+This project was developed as part of the Udemy – Entity Framework Core Masterclass (70+ LINQ & EF Core Methods) course. It is an advanced Admin Dashboard application based on real-world e-commerce and management system scenarios.
+The main goal of the project is to break down Entity Framework Core and LINQ concepts through real-world scenarios rather than rote memorization.
 
-Bu proje, Udemy – Entity Framework Core Masterclass (70+ LINQ & EF Core Metodu) eğitimi kapsamında geliştirilmiş,
-gerçek hayattaki e-ticaret ve yönetim sistemlerini temel alan gelişmiş bir Admin Dashboard uygulamasıdır.
+🎯 Project Goals
 
-Projenin ana amacı;
-Entity Framework Core ve LINQ konularını ezberden uzak, gerçek senaryolar üzerinden derinlemesine uygulamaktır.
-
-🎯 Proje Amacı
-
-EF Core sorgularını gerçek iş ihtiyaçları üzerinden yazmak
-LINQ metotlarını istatistik, filtreleme, gruplama, raporlama senaryolarında kullanmak
-Admin panellerinde sık kullanılan dashboard & analiz ekranlarını geliştirmek
-Temiz, okunabilir ve sürdürülebilir backend mimarisi oluşturmak
+Writing EF Core queries on real business cases
+Using LINQ methods in statistics, filtering, grouping, and reporting scenarios
+Building Dashboard & analytics screens commonly used in Admin panels
+Creating a clean, readable, and maintainable back-end
 
 
-✨ Öne Çıkan Özellikler
-✔ Gelişmiş Admin Dashboard
-✔ Dinamik istatistik kartları
-✔ Gerçek zamanlı veri analizleri
-✔ Sipariş & ürün yönetimi
-✔ Yapılacaklar (To-Do) sistemi
-✔ Grafikler ve veri görselleştirme
-✔ Çoklu LINQ sorgu senaryoları
-✔ Performans odaklı EF Core kullanımı
+✨ Key Features
+✔ Advanced Admin Dashboard
+✔ Dynamic statistics cards
+✔ Real-time data analysis
+✔ Order & product management
+✔ Task management (To-Do)
+✔ Charts and data visualization system
+✔ Multiple LINQ query scenarios
+✔ Performance-focused EF Core usage
 
-📊 Dashboard İçeriği
-👥 Toplam müşteri sayısı
-📦 Toplam ürün & kategori sayıları
-🛒 Sipariş adetleri ve durumları
-💰 En yüksek / en düşük ürün fiyatları
+📊 Dashboard Content
+👥 Total customer count
+📦 Total products and category summaries
+🛒 Order counts and details
+💰 Highest / lowest product prices
+📈 Daily order trends
+🗂️ Product analysis by stock range
+📝 Recent changes & activity logs
+📍 Customer data by city
 
-📈 Günlük sipariş trendleri
-🗂️ Stok aralığına göre ürün analizleri
-📝 Yapılacaklar & aktiviteler
-📍 Şehirlere göre müşteri dağılımı
-Tüm bu veriler LINQ + EF Core sorguları ile dinamik olarak üretilmektedir.
+All data is dynamically generated using LINQ + EF Core queries.
 
 
-🛠️ Kullanılan Teknolojiler
-Teknoloji	Açıklama
-ASP.NET Core MVC	Web uygulama altyapısı
-Entity Framework Core	ORM & veri erişim katmanı
-LINQ	Veri sorgulama ve analiz
-SQL Server	Veritabanı
-Chart.js	Grafik & dashboard görselleri
-Bootstrap	Responsive UI
-Razor Pages	View yapısı
-🧠 EF Core & LINQ Uygulamaları
+🛠️ Technologies Used
+TechnologyDescriptionASP.NET Core MVCWeb application frameworkEntity Framework CoreORM & data access layerLINQData querying and analysisSQL ServerDatabaseChart.jsCharts & dashboard visualsBootstrapResponsive UIRazor PagesView structure
 
-Bu projede aktif olarak kullanılan bazı LINQ & EF Core konuları:
+🧠 EF Core & LINQ Implementations
+Some of the LINQ & EF Core topics actively used in this project:
+
 Where, Select, OrderBy, GroupBy
 Any, All, Count, Sum, Average, Max, Min
-Şarta bağlı sorgular
-Performanslı projection kullanımı
-Dashboard için optimize edilmiş sorgular
-Gerçek senaryo bazlı istatistik üretimi
+Conditional queries
+Performance-efficient projection usage
+Dashboard-optimized queries
+Real scenario-based statistics generation
 
 
-📌 Not
-Bu proje, Entity Framework Core & LINQ bilgisini ileri seviyeye taşımak amacıyla geliştirilmiştir
-ve eğitim + portföy odaklıdır.
+📌 Note
+This project is intended for advanced consolidation of Entity Framework Core & LINQ knowledge, serving both as an educational resource and a portfolio piece.
 
+🤝 Contributing
+🍴 Fork the repo
+🌿 Create a branch
+💾 Commit your changes
+🔃 Submit a pull request
 
-🤝 Katkıda Bulunma
-Fork 🍴
-Branch oluştur 🌿
-Commit at 💾
-Pull Request gönder 🔃
-
-📚 Eğitimci: Murat Yücedağ
-Udemy – Entity Framework Core Masterclass (70+ LINQ & EF Core Metodu)
-© 2026 – Eğitim & Portföy Projesi
+📚 Instructor: Murat Yücedağ
+Udemy – Entity Framework Core Masterclass (70+ LINQ & EF Core Methods)
+© 2026 – Educational & Portfolio Project
